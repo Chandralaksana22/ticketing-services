@@ -1,0 +1,421 @@
+@import url(https://db.onlinewebfonts.com/c/a1e62992c2000401c04c1b6e042516c0?family=The+Bold+Font);
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: "The Bold Font";
+  src: url("https://db.onlinewebfonts.com/t/a1e62992c2000401c04c1b6e042516c0.eot");
+  src: url("https://db.onlinewebfonts.com/t/a1e62992c2000401c04c1b6e042516c0.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/a1e62992c2000401c04c1b6e042516c0.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/a1e62992c2000401c04c1b6e042516c0.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/a1e62992c2000401c04c1b6e042516c0.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/a1e62992c2000401c04c1b6e042516c0.svg#The Bold Font")format("svg");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  font-family: "Raleway", sans-serif;
+  cursor: default;
+}
+
+.text-yellow {
+  color: #FFD600 !important;
+}
+
+.text-blue {
+  color: #008AC6 !important;
+}
+
+.text-brown {
+  color: #824D0F !important;
+}
+
+.bg-yellow {
+  background-color: #FFD600 !important;
+}
+
+.bg-blue {
+  background-color: #008AC6 !important;
+}
+
+.bg-brown {
+  background-color: #824D0F !important;
+}
+
+a {
+  cursor: pointer !important;
+}
+
+.boldfont {
+  font-family: "The Bold Font";
+}
+
+#feature {
+
+  .feature-port {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    .cover {
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      position: absolute;
+      top: 0;
+
+      .detail {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin-bottom: 3%;
+        transform: translateY(80%);
+        backface-visibility: hidden;
+        transition: transform 0.4s, opacity 0.1s 0.3s;
+
+        .title {
+          line-height: 100%;
+          padding-bottom: 20% !important;
+        }
+      }
+    }
+
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+      object-position: top;
+      filter: brightness(50%);
+      transition: 1s ease-in-out;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+
+      .cover .detail {
+        transform: translateY(0px);
+        transition: transform 1s, opacity 0.1s;
+      }
+
+      h3,
+      h5 {
+        color: #FFD600 !important;
+      }
+    }
+  }
+
+}
+
+#placetogo {
+  .placetogo-port {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .cover {
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      position: absolute;
+      top: -25%;
+    }
+
+    img {
+      width: 100% !important;
+      height: 35rem;
+      object-fit: cover;
+      object-position: top;
+      filter: brightness(50%);
+    }
+
+    &:hover {
+      .cover .detail {
+        transform: translateY(0px);
+        transition: opacity 0.1s, transform 1s;
+      }
+
+      h3,
+      h5 {
+        color: #FFD600 !important;
+      }
+    }
+  }
+
+  .hover-content {
+    .content {
+      display: none;
+      transition: opacity 1s ease;
+      opacity: 0;
+    }
+
+    &:hover {
+      .content {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+
+  .img-border {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      border-radius: inherit;
+      border: 1px solid white;
+      opacity: 0.2;
+      inset: 10px;
+      z-index: 50;
+    }
+
+    &:hover:before {
+      opacity: 1;
+    }
+  }
+
+  .cover .detail {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    margin-bottom: 3%;
+    transform: translateY(80%);
+    backface-visibility: hidden;
+    transition: opacity 0.1s 0.3s, transform 0.4s;
+  }
+
+  .cover .detail .title {
+    line-height: 100%;
+    padding-bottom: 20% !important;
+  }
+}
+
+
+.img-border {
+  display: block;
+  overflow: hidden;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    border: 1px solid white;
+    opacity: 0.2;
+    inset: 10px;
+    z-index: 50;
+    transition: opacity 0.2s; // Tambahkan transition untuk animasi yang lebih halus
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+}
+
+.zoom-on-hover img {
+  transition: transform 1s ease;
+}
+
+.zoom-on-hover:hover img {
+  transform: scale(1.1);
+}
+
+.zoom-on-hover:hover h5 {
+  color: #FFD600 !important;
+}
+
+.panel-home {
+  .clock {
+    color: #BF9500;
+
+    svg path {
+      fill: #BF9500;
+    }
+
+    &:hover {
+      color: #972400 !important;
+
+      svg path {
+        fill: #972400 !important;
+      }
+    }
+  }
+
+  .ticket {
+    color: #BF9500;
+
+    svg path {
+      fill: #BF9500;
+    }
+
+    &:hover {
+      color: #0083BB !important;
+
+      svg path {
+        fill: #0083BB !important;
+      }
+    }
+  }
+
+  .map {
+    color: #BF9500;
+
+    svg path {
+      fill: #BF9500;
+    }
+
+    &:hover {
+      color: #366C00 !important;
+
+      svg path {
+        fill: #366C00 !important;
+      }
+    }
+  }
+
+  .wo {
+    color: #BF9500;
+
+    svg path {
+      fill: #BF9500;
+    }
+
+    &:hover {
+      color: #6020A0 !important;
+
+      svg path {
+        fill: #6020A0 !important;
+      }
+    }
+  }
+}
+
+.panel-transparent {
+  .clock {
+    color: white;
+
+    svg path {
+      fill: white;
+    }
+
+    &:hover {
+      color: #972400 !important;
+
+      svg path {
+        fill: #972400 !important;
+      }
+    }
+  }
+
+  .ticket {
+    color: white;
+
+    svg path {
+      fill: white;
+    }
+
+    &:hover {
+      color: #0083BB !important;
+
+      svg path {
+        fill: #0083BB !important;
+      }
+    }
+  }
+
+  .map {
+    color: white;
+
+    svg path {
+      fill: white;
+    }
+
+    &:hover {
+      color: #366C00 !important;
+
+      svg path {
+        fill: #366C00 !important;
+      }
+    }
+  }
+
+  .wo {
+    color: white;
+
+    svg path {
+      fill: white;
+    }
+
+    &:hover {
+      color: #6020A0 !important;
+
+      svg path {
+        fill: #6020A0 !important;
+      }
+    }
+  }
+}
+
+.slide {
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 8.5em 0 0 0 #FFD600;
+    transition: box-shadow 0.5s ease;
+  }
+}
+
+.slide-white {
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 8.5em 0 0 0 #ffffff;
+    transition: box-shadow 0.5s ease;
+  }
+}
+
+.tab-button[aria-selected="true"] {
+  background-color: #008AC6;
+  color: white
+}
+.tab-button[aria-selected="true"]:hover {
+  color: white;
+}
+.tab-button[aria-selected="false"] {
+  background-color: #ECECEC;
+  color: #828282;
+}
+
+#swiper-ps {
+  .swiper-wrapper {
+    padding-left: 2.5rem !important;
+  }
+}
+
+
+.card-zoom-hover {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+}

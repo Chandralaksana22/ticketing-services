@@ -1,0 +1,1 @@
+export { default } from "file:///C:/Users/ASUS/Documents/Training/ticketing-services/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
