@@ -646,7 +646,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./confirmation-mkZ71U2n.mjs').then((m) => m.default || m)
+    component: () => import('./confirmation-pzPP__YG.mjs').then((m) => m.default || m)
   },
   {
     name: "contact",
