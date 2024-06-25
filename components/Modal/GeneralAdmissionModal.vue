@@ -85,53 +85,62 @@
                         </div>
                         <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="BaliBirdParkGA"
                             role="tabpanel" aria-labelledby="BaliBirdParkGA-tab">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
-                                <div>
-                                    <a href="#">
-                                        <img class="rounded-t-lg" src="../../assets/image/image-13.png" alt="" />
+                            <div
+                                class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
+                                <div v-for="product in balibird" :key="product.id">
+                                    <a :href="product.link_address">
+                                        <img class="rounded-none h-[25vh] object-cover w-full object-top"
+                                            :src="product.images[0].path" :alt="product.name" />
                                     </a>
                                     <div class="p-2 text-center">
-                                        <h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-                                            Bali Zoo General Admission Ticket</h5>
-                                        <a href="" class="bg-yellow p-2 text-black rounded-lg text-sm">See
-                                            Details</a>
+                                        <h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">{{
+                                    product.name
+                                }}</h5>
+                                        <NuxtLink v-if="product.vendor"
+                                            :to="`/ticket-detail/${product.vendor.slug}/${product.slug}`"
+                                            class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</NuxtLink>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="BaliFarmHouseGA"
                             role="tabpanel" aria-labelledby="BaliFarmHouseGA-tab">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
-                                <div>
-                                    <a href="#">
-                                        <img class="rounded-t-lg" src="../../assets/image/image-13.png" alt="" />
+                            <div
+                                class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
+                                <div v-for="product in balifarm" :key="product.id">
+                                    <a :href="product.link_address">
+                                        <img class="rounded-none h-[25vh] object-cover w-full object-top"
+                                            :src="product.images[0].path" :alt="product.name" />
                                     </a>
                                     <div class="p-2 text-center">
-                                        <h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-                                            Bali Zoo General Admission Ticket</h5>
-                                        <a href="" class="bg-yellow p-2 text-black rounded-lg text-sm">See
-                                            Details</a>
+                                        <h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">{{
+                                    product.name
+                                }}</h5>
+                                        <NuxtLink v-if="product.vendor"
+                                            :to="`/ticket-detail/${product.vendor.slug}/${product.slug}`"
+                                            class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</NuxtLink>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="BaliSafariGA" role="tabpanel"
                             aria-labelledby="BaliSafariGA-tab">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
-                                <div>
-                                    <a href="#">
-                                        <img class="rounded-t-lg" src="../../assets/image/image-13.png" alt="" />
+                            <div
+                                class="overflow-y-auto h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
+                                <div v-for="product in balisafari" :key="product.id">
+                                    <a :href="product.link_address">
+                                        <img class="rounded-none h-[25vh] object-cover w-full object-top"
+                                            :src="product.images[0].path" :alt="product.name" />
                                     </a>
                                     <div class="p-2 text-center">
-                                        <h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">
-                                            Bali Zoo General Admission Ticket</h5>
-                                        <a href="" class="bg-yellow p-2 text-black rounded-lg text-sm">See
-                                            Details</a>
+                                        <h5 class="mb-2 text-md font-bold tracking-tight text-gray-900">{{
+                                    product.name
+                                }}</h5>
+                                        <NuxtLink v-if="product.vendor"
+                                            :to="`/ticket-detail/${product.vendor.slug}/${product.slug}`"
+                                            class="bg-yellow p-2 text-black rounded-lg text-sm">See Details</NuxtLink>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -156,7 +165,7 @@ if (vendors.value) {
 }
 const { data: explorerGAData, error: explorerGAError } = useAsyncData('explorerGA', async () => {
     const data = await getBaliZooPopular();
-    return data.filter(product => product.type === 'general admission');
+    return data.filter(product => product.type === 'General Admission');
 });
 
 if (explorerGAData.value) {
