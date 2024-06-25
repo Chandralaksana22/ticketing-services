@@ -662,7 +662,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-CGPiKjkd.mjs').then((m) => m.default || m)
+    component: () => import('./index-CkTH3nm6.mjs').then((m) => m.default || m)
   },
   {
     name: "ticket-detail-vendorSlug-productSlug",
