@@ -302,17 +302,18 @@ const submitForm = async () => {
     try {
         const response = await axios.post('https://balitiket.mindimedia.com/api/v1/send-form', formData, {
             headers: {
-                'Content-Type': 'application/json',
-                // You may need additional headers like Authorization if required by your API
+                'Access-Control-Allow-Origin': '*', 
+                'Access-Control-Allow-Methods': '*', 
+                'Access-Control-Allow-Credentials': 'true',
+                'Access-Control-Allow-Headers': '*',
+                'Access-Control-Expose-Headers': '*',
             },
         });
 
         console.log('Form submission successful:', response.data);
-        // Handle success (e.g., redirect to payment page)
-        // Example: router.push('/payment'); // Uncomment if using Vue Router
+      
     } catch (error) {
         console.error('Error submitting form:', error.message);
-        // Handle error (e.g., show error message to user)
     }
 };
 </script>
