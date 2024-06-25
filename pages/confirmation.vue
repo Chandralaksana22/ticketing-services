@@ -302,13 +302,15 @@ const submitForm = async () => {
     try {
         const response = await axios.post('https://balitiket.mindimedia.com/api/v1/send-form', formData, {
             headers: {
-                'Access-Control-Allow-Origin': '*', 
-                'Access-Control-Allow-Methods': '*', 
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, OPTION",
+                "Content-Type": "application/json"
+
             },
         });
 
         console.log('Form submission successful:', response.data);
-      
+
     } catch (error) {
         console.error('Error submitting form:', error.message);
     }
