@@ -270,49 +270,32 @@ const loadCities = async (event) => {
         console.error('Error fetching cities:', error);
     }
 };
+
 const submitForm = async () => {
-    const formData = {
-        guestname: guestname.value,
-        firstname: firstname.value,
-        lastname: lastname.value,
-        country: selectedCountry.value,
-        state: selectState.value,
-        city: selectCity.value,
-        zipcode: zipInput.value,
-        phone: phoneInput.value,
-        email: email.value,
-        terms: terms.value,
-        adult: ticketData.adultsCount,
-        children: ticketData.childrenCount,
-        infant: ticketData.infantsCount,
-        id: ticketData.selectedTicket.id,
-        product_id: ticketData.selectedTicket.product_id,
-        vendor_id: ticketData.selectedTicket.vendor_id,
-        slug: ticketData.selectedTicket.slug,
-        arrival: ticketData.selectedDate,
-        adult_price: ticketData.selectedTicket.adult_price,
-        children_price: ticketData.selectedTicket.children_price,
-        infant_price: ticketData.selectedTicket.infant_price,
-        total_adult_price: ticketData.selectedTicket.total_adult,
-        total_children_price: ticketData.selectedTicket.total_children,
-        total_infant_price: ticketData.selectedTicket.total_infant,
-        total_price: calculateDiscountedPrice(ticketData.selectedTicket),
+    let data = '';
+    const selectedDate = new Date(ticketData.selectedDate);
+    const day = selectedDate.getDate().toString().padStart(2, '0');
+    const month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
+    const year = selectedDate.getFullYear().toString();
+    const formattedDate = `${year}-${month}-${day}`;
+    let config = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        url: `https://balitiket.mindimedia.com/api/v1/send-form?adult=${ticketData.adultsCount}&children=${ticketData.childrenCount}&infant=${ticketData.infantsCount}&total_price=${calculateDiscountedPrice(ticketData.selectedTicket)}&adult_price=${ticketData.selectedTicket.adult_price}&children_price=${ticketData.selectedTicket.children_price}&infant_price=${ticketData.selectedTicket.infant_price}&total_adult_price=${ticketData.selectedTicket.total_adult}&total_children_price=${ticketData.selectedTicket.total_children}&total_infant_price=${ticketData.selectedTicket.total_infant}&arrival=${formattedDate}&guestname=${guestname.value}&firstname=${firstname.value}&lastname=${lastname.value}&email=${email.value}&phone=${phoneInput.value}&country=${selectedCountry.value}&state=${selectState.value}&city=${selectCity.value}&zipcode=${zipInput.value}&terms=${terms.value}&id=${ticketData.selectedTicket.id}&product_id=${ticketData.selectedTicket.product_id}&vendor_id=${ticketData.selectedTicket.vendor_id}&slug=${ticketData.selectedTicket.slug}`,
+        headers: {},
+        data: data
     };
 
-    try {
-        const response = await axios.post('https://balitiket.mindimedia.com/api/v1/send-form', formData, {
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET, POST, OPTION",
-                "Content-Type": "application/json"
-
-            },
+    axios.request(config)
+        .then((response) => {
+            console.log(JSON.stringify(response.data));
+            if (response.data.response) {
+            window.location.href = response.data.response;
+        }
+        })
+        .catch((error) => {
+            console.log(error);
         });
 
-        console.log('Form submission successful:', response.data);
-
-    } catch (error) {
-        console.error('Error submitting form:', error.message);
-    }
 };
 </script>
